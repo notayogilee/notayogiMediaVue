@@ -21,16 +21,17 @@ onMounted: getAllPosts();
 
 <template>
   <main class="container mx-auto p-10">
-    <ul class="grid grid-rows-2 grid-flow-row grid-cols-2 gap-5">
+    <ul class="grid lg:grid-rows-2 grid-flow-row lg:grid-cols-2 gap-5">
       <li
-        class="w-3/4 mx-auto"
-        v-for="{ title, subtitle, image, _id } in posts"
+        class="w-100"
+        v-for="({ title, subtitle, image, _id }, index) in posts"
         :key="_id"
       >
         <PostThumbnail
           :title="title"
           :subtitle="subtitle"
           :img="urlFor(image.asset._ref)"
+          :index="index"
         />
       </li>
     </ul>
